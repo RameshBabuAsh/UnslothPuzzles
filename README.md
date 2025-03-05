@@ -26,8 +26,8 @@ Feel free to explore and improve upon these solutions.
     - [ ] If not (-1)
   - [ ] Custom ASM works (+3)
   - [ ] Uses cache eviction (+1)
-  - [ ] Tested in f16 and bf16 (+1)
-    - [x] If not (-1)
+  - [x] Tested in f16 and bf16 (+1) (In GPUs with SM >= 80, f16 works on colab & kaggle free GPUs as well)
+    - [ ] If not (-1)
 
 
 - Part B:
@@ -78,6 +78,6 @@ Feel free to explore and improve upon these solutions.
     - [ ] If not (score = 0)
   - [x] GRPO memory efficient linear works (+4)
  
-Next Steps: Over the weekend, I'll either work on refining the four current solutions further or tackle an additional challenge in task D, depending on the weekend :)
+Next Steps: Over the weekend, I'll either work on refining the four current solutions further or tackle an additional challenge in task D :)
 
 Thanks for the template @parnox/unsloth-notes
