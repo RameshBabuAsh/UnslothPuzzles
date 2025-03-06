@@ -8,6 +8,21 @@ The goal of this task was to integrate `torch.compile` into the QLoRA training p
 
 As someone new to `torch.compile`, I embarked on this task eager to explore its performance benefits. My first experiments were encouraging: compiling the base model resulted in no graph breaks and only one recompilation. However, extending the compilation to include LoRA brought a single graph break to light. This README tells the story of my troubleshooting, the challenges I faced, and the targeted modifications I made to ensure a seamless, efficient, and accurate compiled training run for QLoRA.
 
+## Performance Comparison: Compiled vs. Uncompiled Models
+
+- **Compiled Model:**
+  - **Main Training:** 145 steps in ~41 seconds
+  - **Training Loss:** 3.8655
+
+- **Uncompiled Model:**
+  - **Main Training:** 145 steps in ~79 seconds
+  - **Training Loss:** 3.8709 
+
+- **Overview**
+  - Compiled Model is approximately 2x faster than the uncompiled version, once it got warmed up.
+  - There are zero graph breaks.
+  - Number of recompilations is just three at max (over multiple tests).
+
 ## Early Experiments with torch.compile and LoRA
 
 Initially, I compiled the model without any LoRA modifications. This run was smooth—with no graph breaks and minimal recompilation. Emboldened, I then compiled the model including LoRA. Almost immediately, I encountered a graph break. The culprit turned out to be an in-place modification in the following piece of code:
@@ -110,21 +125,6 @@ Once the Bitsandbytes and dequantization issues were resolved, I moved on to com
 - **Loss Function:** Even the loss function was compiled successfully, ensuring that the overall training process was fully optimized.
 
 The training run on a sample model confirmed that the recompilation count was reduced to just three during the warmup phase—far below the excessive counts observed earlier. Importantly, the loss values between the compiled and uncompiled versions were nearly identical.
-
-## Performance Comparison: Compiled vs. Uncompiled Models
-
-- **Compiled Model:**
-  - **Main Training:** 145 steps in ~41 seconds
-  - **Training Loss:** 3.8655
-
-- **Uncompiled Model:**
-  - **Main Training:** 145 steps in ~79 seconds
-  - **Training Loss:** 3.8709 
-
-- **Overview**
-  - Compiled Model is approximately 2x faster than the uncompiled version, once it got warmed up.
-  - There are zero graph breaks.
-  - Number of recompilations is just three at max (over multiple tests).
 
 # Installation Guide
 
