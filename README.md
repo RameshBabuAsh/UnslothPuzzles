@@ -11,7 +11,16 @@ Working through these challenges has deepened my understanding of PyTorch, quant
 
 Feel free to explore and improve upon these solutions.
 
-**For Unsloth People** : I am Ramesh Babu, a third-year B.Tech CSE student at Indian Institute of Information Technology, Design and Manufacturing, Jabalpur, India, with a keen interest in Artificial Intelligence. 
+### A Note for Unsloth People
+
+I’m Ramesh Babu, a third-year B.Tech CSE student at the Indian Institute of Information Technology, Design and Manufacturing, Jabalpur, India, with a strong passion for Artificial Intelligence. Please note that in my implementation, the Torch Compile task is closely correlated with the FSDP2 task. For the best understanding, I recommend reviewing the tasks in the following order:
+
+1. **Torch Compile**  
+2. **FSDP2**  
+3. **Triton**  
+4. **Backpropagation**
+
+This sequence will help you follow the evolution and integration of the features.
 
 ## Challenge Progress:
 

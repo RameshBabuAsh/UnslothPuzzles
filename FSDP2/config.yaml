@@ -1,0 +1,25 @@
+compute_environment: LOCAL_MACHINE  # Running on a local machine
+debug: false                        # Debug mode disabled
+distributed_type: FSDP              # Use Fully Sharded Data Parallel for distributed training version 2
+downcast_bf16: 'no'                 # Do not downcast BF16 precision
+fsdp_config:                        # FSDP-specific configuration
+  fsdp_auto_wrap_policy: TRANSFORMER_BASED_WRAP  # Automatically wrap transformer modules for FSDP
+  fsdp_backward_prefetch: BACKWARD_PRE             # Enable backward prefetching to optimize memory usage
+  fsdp_cpu_ram_efficient_loading: true            # Enable efficient CPU RAM loading during FSDP initialization
+  fsdp_forward_prefetch: false                     # Disable forward prefetching
+  fsdp_offload_params: true                        # Offload parameters to CPU when not in use
+  fsdp_sharding_strategy: FULL_SHARD               # Use full sharding strategy for optimal memory usage
+  fsdp_state_dict_type: SHARDED_STATE_DICT         # Save state dict in a sharded format
+  fsdp_sync_module_states: true                    # Synchronize module states across processes
+  fsdp_use_orig_params: false                      # Do not use original parameters (if torch.compile then true)
+machine_rank: 0                      # Rank of this machine in multi-machine setups
+main_training_function: main         # Name of the main training function to execute
+mixed_precision: 'no'                # Mixed precision training
+num_machines: 1                      # Total number of machines involved in training
+num_processes: 2                     # Number of processes (GPUs) per machine
+rdzv_backend: static                 # Use a static backend for rendezvous (process group setup)
+same_network: true                   # All machines are on the same network
+tpu_env: []                          # TPU environment settings (empty indicates TPU not used)
+tpu_use_cluster: false               # Do not use a TPU cluster
+tpu_use_sudo: false                  # TPU sudo access is not required
+use_cpu: false                       # Training will run on GPUs, not on CPU
