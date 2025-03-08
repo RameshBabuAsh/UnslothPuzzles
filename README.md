@@ -86,7 +86,5 @@ This sequence will help you follow the evolution and integration of the features
   - [x] Llama 1B training loss matches (+1)
     - [ ] If not (score = 0)
   - [x] GRPO memory efficient linear works (+4)
- 
-Next Steps: Over the weekend, I'll either work on refining the four current solutions further or tackle an additional challenge in task D :)
 
 Thanks for the template @parnox/unsloth-notes
